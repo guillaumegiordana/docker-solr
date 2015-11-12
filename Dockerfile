@@ -1,7 +1,7 @@
 FROM java:openjdk-8-jre
 MAINTAINER Guillaume Giordana "guillaume.giordana@the-oz.com"
 
-ENV SOLR_VERSION 5.3.0
+ENV SOLR_VERSION 5.3.1
 ENV SOLR solr-$SOLR_VERSION
 ENV SOLR_USER solr
 RUN export DEBIAN_FRONTEND=noninteractive && \
