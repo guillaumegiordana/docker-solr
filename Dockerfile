@@ -1,8 +1,8 @@
 FROM java:openjdk-8-jre
 MAINTAINER Guillaume Giordana "guillaume.giordana@the-oz.com"
 
-ENV SOLR_VERSION 3.6.1
-ENV SOLR apache-solr-$SOLR_VERSION
+ENV SOLR_VERSION 5.3.0
+ENV SOLR solr-$SOLR_VERSION
 ENV SOLR_USER solr
 RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get update && \
@@ -19,4 +19,4 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 EXPOSE 8983
 WORKDIR /opt/solr
 USER $SOLR_USER
-CMD cd /opt/$SOLR/theoz/ && java -Dsolr.solr.home=multicore -jar start.jar
+CMD ["/bin/bash", "-c", "/opt/solr/bin/solr -f"]
